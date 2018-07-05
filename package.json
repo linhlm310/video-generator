@@ -1,7 +1,7 @@
 {
-  "name": "rails-react-boilerplate",
+  "name": "video-generator",
   "version": "1.0.0",
-  "description": "Rails / React / Redux / Webpack 2 boilerplate app.",
+  "description": "Video Generator app.",
   "main": "index.js",
   "engines": {
     "node": "8.11.3"
@@ -18,7 +18,6 @@
   },
   "author": "IP",
   "license": "MIT",
-  "repository": "giannisp/rails-react-boilerplate",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",

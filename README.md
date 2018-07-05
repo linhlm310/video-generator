@@ -1,4 +1,4 @@
-# rails-react-boilerplate
+# video-generator
 
 This is a pure [Ruby on Rails](http://rubyonrails.org/) / [React](https://facebook.github.io/react/) / [Redux](https://github.com/reactjs/redux) / [Webpack 4](https://webpack.js.org/) boilerplate app.
 
@@ -74,8 +74,8 @@ Assets should be compiled first using webpack outside of the container.
 
 ```sh
 # build docker image
-docker build -t rails-react-boilerplate .
+docker build -t video-generator .
 
 # run docker image
-docker run -p 3000:3000 -e SECRET_KEY_BASE=abcd rails-react-boilerplate
+docker run -p 3000:3000 -e SECRET_KEY_BASE=abcd video-generator
 ```
