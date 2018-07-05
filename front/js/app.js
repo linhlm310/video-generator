@@ -14,7 +14,7 @@ import thunkMiddleware from 'redux-thunk';
 import '../css/app.scss';
 
 import rootReducer from './reducers/root-reducer';
-import HelloWorld from './containers/HelloWorldContainer';
+import CreateVideoPage from './containers/Video/CreateVideoPage';
 import getLogger from './util/logger';
 
 const log = getLogger('App');
@@ -35,7 +35,7 @@ const init = () => {
 
   ReactDom.render(
     <Provider store={store}>
-      <HelloWorld />
+      <CreateVideoPage />
     </Provider>,
     document.getElementById('app'),
   );
