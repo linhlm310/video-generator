@@ -13,9 +13,15 @@ const errorsUpdate = (errors) => {
   return { type: ERRORS_UPDATE, errors };
 };
 
-export const createVideo = () => async (dispatch) => {
+export const createVideo = (title: string, content: string, imageSrcs: Array<string>) => async (dispatch) => {
   try {
-    await axios.post('/videos');
+    await axios.post('/videos', {
+      video: {
+        title,
+        content,
+        image_srcs: imageSrcs,
+      },
+    });
   } catch (error) {
     dispatch(errorsUpdate(error.response.data.errors));
     log.error(error);

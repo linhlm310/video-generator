@@ -23,39 +23,31 @@ const mapDispatchToProps = {
 };
 
 type State = {
+  title: string,
 };
 
 class CreateVideoPage extends React.Component<*, State> {
   state = {
+    title: '',
   };
 
-  componentDidMount() {
-    const { createVideo: createVideoAction } = this.props;
-    createVideoAction();
+  handleTitleChange = (event: Event) => {
+    this.setState({ title: event.target.value });
   }
 
-  // handleEditorChange = (value: any) => {
-  //   console.log(value);
-  // }
-  //
-  // handleChange = (event: any) => {
-  //   console.log(event);
-  //   console.log(event.target.getContent({ format: 'text' }));
-  //   console.log(event.target.uploadImages());
-  //   this.editor = event.target;
-  // }
-
   handleSubmit = async () => {
-    console.log(this.editor.getContent({ format: 'text' }));
-    const arrayOfImageSrcs = getAttrFromString(this.editor.getContent(), 'img', 'src');
-    console.log(arrayOfImageSrcs);
+    const { createVideo: createVideoAction } = this.props;
+    const { title } = this.state;
+    const content = this.editor.getContent({ format: 'text' });
+    const imageSrcs = getAttrFromString(this.editor.getContent(), 'img', 'src');
+
+    createVideoAction(title, content, imageSrcs);
   }
 
   editor: any;
 
   render() {
     const { errors } = this.props;
-    console.log(errors);
     return (
       <div>
         <div className="lti-registration-headline">
@@ -77,10 +69,11 @@ class CreateVideoPage extends React.Component<*, State> {
                 <span className="lci-label__error-text">{` (${errors.title.join(', ')})`}</span>
               )}
               <input
-                type="input"
+                type="text"
                 id="video_title"
                 name="video[title]"
                 className="lti-registration-input"
+                onChange={this.handleTitleChange}
               />
             </label>
           </div>
@@ -95,8 +88,6 @@ class CreateVideoPage extends React.Component<*, State> {
                   this.editor = editor;
                 },
               }}
-              // onChange={this.handleChange}
-              // onEditorChange={this.handleEditorChange}
             />
           </div>
           <div>
