@@ -47,11 +47,7 @@ class CreateVideoPage extends React.Component<*, State> {
 
   handleSubmit = async () => {
     console.log(this.editor.getContent({ format: 'text' }));
-    const arrayOfImageSrcs = getAttrFromString(
-      this.editor.getContent(),
-      'img',
-      'src'
-    );
+    const arrayOfImageSrcs = getAttrFromString(this.editor.getContent(), 'img', 'src');
     console.log(arrayOfImageSrcs);
   }
 
