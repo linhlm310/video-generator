@@ -1,8 +1,7 @@
 class CreateVideoFromImages
   include Interactor
 
-  delegate :video to: :context
-
   def call
+    context.video.processing!
   end
 end

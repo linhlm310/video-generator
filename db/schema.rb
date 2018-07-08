@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 2018_07_05_151218) do
     t.string "title"
     t.string "content"
     t.string "image_srcs", default: [], array: true
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["status"], name: "index_videos_on_status"
   end
 
 end
