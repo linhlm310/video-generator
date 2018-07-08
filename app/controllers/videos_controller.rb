@@ -3,7 +3,7 @@ class VideosController < ApplicationController
 
   def create
     video = Video.new(video_params)
-    unless video.save!
+    unless video.save
       render json: { errors: video.errors }, status: :unprocessable_entity
     end
   end

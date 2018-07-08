@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 2018_07_05_151218) do
 
   create_table "videos", force: :cascade do |t|
     t.string "title"
+    t.string "content"
+    t.string "image_srcs", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
