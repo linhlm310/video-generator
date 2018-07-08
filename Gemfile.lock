@@ -62,6 +62,10 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.0.0)
       concurrent-ruby (~> 1.0)
+    interactor (3.1.1)
+    interactor-rails (2.2.0)
+      interactor (~> 3.0)
+      rails (>= 4.2, < 5.3)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -169,6 +173,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
+  interactor-rails (~> 2.0)
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
@@ -187,4 +192,4 @@ RUBY VERSION
    ruby 2.5.0p0
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
