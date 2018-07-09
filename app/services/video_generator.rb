@@ -10,6 +10,6 @@ class VideoGenerator
   end
 
   def add_subtitles
-    system "ffmpeg -i temp/#{@video.key}/raw.mp4 -vf subtitles=sample.srt temp/#{@video.key}/added-subtitles.mp4"
+    system "ffmpeg -i temp/#{@video.key}/raw.mp4 -vf subtitles=outputs/#{@video.key}/subtitles.srt temp/#{@video.key}/added-subtitles.mp4"
   end
 end

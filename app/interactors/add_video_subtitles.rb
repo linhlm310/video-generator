@@ -13,6 +13,8 @@ class AddVideoSubtitles
   private
 
   def generate_subtitles
+    subtitle_generator = SubtitleGenerator.new(video)
+    subtitle_generator.generate
   end
 
   def add_subtitles
