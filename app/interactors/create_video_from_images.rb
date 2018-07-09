@@ -4,9 +4,9 @@ class CreateVideoFromImages
   delegate :video, to: :context
 
   def call
-    video.processing!
-
+    video.downloading_images!
     download_images
+    video.generating_raw_version!
     generate_raw_video
   end
 
@@ -18,7 +18,8 @@ class CreateVideoFromImages
   end
 
   def generate_raw_video
-    generator = VideoGenerator.new(video)
-    generator.generate_raw_video
+    video_generator = VideoGenerator.new(video)
+    video_generator.generate_raw_video
+    context.video_generator = video_generator
   end
 end

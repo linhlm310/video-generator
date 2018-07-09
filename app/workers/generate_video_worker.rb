@@ -3,7 +3,7 @@ class GenerateVideoWorker
 
   def perform(video_id)
     video = Video.find_by(id: video_id)
-    return unless video && video.status != :processed
+    return unless video && video.unprocessed?
 
     GenerateVideo.call(video: video)
   end

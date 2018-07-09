@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Video < ActiveRecord::Base
-  enum status: [ :unprocessed, :processing, :processed ]
+  enum status: [:unprocessed, :downloading_images, :generating_raw_version,
+    :generating_subtitles, :adding_subtitles, :adding_audio, :completed]
 
   validates :title, presence: true
 
