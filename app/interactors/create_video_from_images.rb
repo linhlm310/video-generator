@@ -7,19 +7,18 @@ class CreateVideoFromImages
     video.processing!
 
     download_images
+    generate_raw_video
   end
 
   private
 
   def download_images
-    downloader = ImageDownloader.new(video.key)
-    video.image_srcs.each_with_index do |image_url, index|
-      downloader.download(get_image_name(index + 1), image_url)
-    end
+    downloader = ImageDownloader.new(video)
+    downloader.download_images
   end
 
-  def get_image_name(index)
-    formatted_index = format('%03d', index)
-    "image#{formatted_index}.png"
+  def generate_raw_video
+    generator = VideoGenerator.new(video)
+    generator.generate_raw_video
   end
 end
