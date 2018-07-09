@@ -2,7 +2,7 @@ require 'open-uri'
 
 class ImageDownloader
   def initialize(folder_name)
-    @base_file_path = "images/#{folder_name}"
+    @base_file_path = "inputs/#{folder_name}"
     FileUtils.mkdir_p(@base_file_path) unless File.exist?(@base_file_path)
   end
 
